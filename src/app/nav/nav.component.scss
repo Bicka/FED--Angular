@@ -1,0 +1,164 @@
+/* 
+** The Header Media Queries **
+** Tweak as per your needs **
+*/
+@import "../../assets/scss/variables";
+
+.brand {
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.site-header {
+  margin-top: 0px !important;
+  position: relative;
+  background-color: $white;
+}
+
+.site-header__wrapper {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  margin: 0 40px;
+}
+
+@media (min-width: 600px) {
+  .site-header__wrapper {
+    display: flex;
+    align-items: center;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+}
+
+.nav {
+  flex: 1;
+}
+
+@media (min-width: 600px) {
+  .nav__wrapper {
+    display: flex;
+  }
+}
+
+@media (max-width: 599px) {
+  .nav__wrapper {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    left: 0;
+    z-index: 5;
+    background-color: #fff;
+    visibility: hidden;
+    opacity: 0;
+    transform: translateY(-100%);
+    transition: transform 0.3s ease-out, opacity 0.3s ease-out;
+  }
+
+  .nav__wrapper.active {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(-5%);
+  }
+}
+
+.nav__item a {
+  display: block;
+  padding: 1.5rem 1rem;
+}
+
+#nav-checkbox {
+  opacity: 0;
+  position: absolute;
+  z-index: 1;
+
+  &:checked {
+    ~ .line-main::before {
+      transform: rotate(45deg);
+    }
+
+    ~ .line-main::after {
+      transform: rotate(-45deg);
+    }
+
+    ~ .line-split::before {
+      transform: translateX(-10px);
+      opacity: 0;
+    }
+
+    ~ .line-split::after {
+      transform: translateX(20px);
+      opacity: 0;
+    }
+  }
+}
+
+.hamburger {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  cursor: pointer;
+
+  .line {
+    position: absolute;
+    width: 20px;
+
+    &.line-main::before,
+    &.line-main::after,
+    &.line-split::before,
+    &.line-split::after {
+      content: "";
+      position: absolute;
+      width: inherit;
+      height: 2px;
+      background-color: $blue;
+      transition: transform 0.5s;
+    }
+
+    &.line-main {
+      &::before {
+        transform: translateY(-7px);
+      }
+
+      &::after {
+        transform: translateY(7px);
+      }
+    }
+
+    &.line-split {
+      &::before,
+      &::after {
+        width: 10px;
+        transition: transform 0.5s, opacity 0.5s;
+      }
+
+      &::after {
+        transform: translateX(10px);
+      }
+    }
+  }
+}
+
+@media (min-width: 600px) {
+  .nav__item--end {
+    margin-left: auto;
+  }
+}
+
+.nav__toggle {
+  display: none;
+}
+
+@media (max-width: 599px) {
+  .nav__toggle {
+    display: flex;
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+  }
+}
+
+.logout {
+  cursor: pointer;
+}

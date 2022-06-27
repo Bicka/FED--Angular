@@ -1,0 +1,12 @@
+@mixin text-classes {
+  @for $i from 0 to length($colorsNameBlackText) {
+    .text-#{nth($colorsNameBlackText,$i+1)} {
+      color: nth($colorsValBlackText, $i + 1) !important;
+    }
+  }
+  @for $i from 0 to length($colorsNameWhiteText) {
+    .text-#{nth($colorsNameWhiteText,$i+1)} {
+      color: nth($colorsValWhiteText, $i + 1) !important;
+    }
+  }
+}

@@ -1,0 +1,36 @@
+<div class="login-container">
+  <div class="login-div">
+    <div class="login-wrap">
+
+      <h3>Create a new account</h3>
+
+      <form [formGroup]="registerForm" class="form-div" (ngSubmit)="registerForm.valid && register()"
+        autocomplete="off">
+        <label for="username">Your email</label>
+        <app-text-inputs [formControl]="registerForm.controls['username']" [label]="'Email'"></app-text-inputs>
+
+        <app-password-meter [passwordToCheck]="registerForm.controls['password'].value" [barLabel]="barLabel">
+        </app-password-meter>
+        <app-text-inputs [formControl]="registerForm.controls['password']" [label]="'Password'" [type]="'password'">
+        </app-text-inputs>
+
+        <label for="CheckPassword">Confirm password</label>
+        <app-text-inputs [formControl]="registerForm.controls['confirmPassword']" [label]="'ConfirmPassword'"
+          [type]="'password'"></app-text-inputs>
+
+        <div class="form-footer">
+          <span class="form-register">
+            <a class="text-blue" routerLink="/login">Back to login</a>
+          </span>
+          <button [disabled]="!registerForm.valid" class="btn btn-blue" type="submit">Register</button>
+
+        </div>
+        <div class="row" *ngIf="validationErrors.length > 0">
+          <ul class="text-red">
+            <li *ngFor="let item of validationErrors">{{item}}</li>
+          </ul>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

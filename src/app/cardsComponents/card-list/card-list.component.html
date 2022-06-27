@@ -1,0 +1,55 @@
+<div class="container-options" *ngIf="items">
+  <form #form="ngForm" class="form_options" (ngSubmit)="loadItems()" autocomplete="off">
+
+    <div class="option-row">
+      <label>Breed: </label>
+      <select name="breed" style="width: 130px;" [(ngModel)]="itemsParams.breed_id" class="form-control ml-1">
+        <option *ngFor="let breed of optionsBreed" [value]="breed.id">{{breed.name}}
+        </option>
+      </select>
+    </div>
+
+    <div class="option-row">
+      <label>Category: </label>
+      <select name="category" style="width: 130px;" [(ngModel)]="itemsParams.category_ids" class="form-control ml-1">
+        <option *ngFor="let cat of optionsCategory" [value]="cat.id">{{cat.name}}
+        </option>
+      </select>
+    </div>
+    <div class="option-row">
+      <label>Type: </label>
+      <select name="type" style="width: 130px;height: 60px;" [(ngModel)]="itemsParams.mime_types"
+        class="form-control ml-1" multiple>
+        <option [value]="'gif'">GIF</option>
+        <option [value]="'png'">PNG</option>
+        <option [value]="'jpeg'">JPEG</option>
+
+      </select>
+    </div>
+
+    <button class="btn btn-blue" type="submit">Apply filters</button>
+    <button class="btn btn-orange" type="submit" (click)="resetFilters()">Reset filters</button>
+
+  </form>
+</div>
+<div class="l-container" *ngIf="items">
+  <div *ngFor="let item of items | paginate : {
+        itemsPerPage: pagination.itemsPerPage,
+        currentPage: pagination.currentPage + 1,
+        totalItems: pagination.totalItems
+      }">
+    <app-card-item [item]="item" [type]="'search'"></app-card-item>
+  </div>
+</div>
+<div class="l-container" *ngIf="itemsFav">
+  <div *ngFor="let item of itemsFav | paginate : {
+        itemsPerPage: pagination.itemsPerPage,
+        currentPage: pagination.currentPage + 1,
+        totalItems: pagination.totalItems
+      }">
+    <app-card-item [item]="item" [type]="'fav'"></app-card-item>
+  </div>
+</div>
+
+<pagination-controls class="card-pagination" previousLabel="" nextLabel="" [responsive]="true"
+  (pageChange)="pageChanged($event)"></pagination-controls>

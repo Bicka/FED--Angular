@@ -1,0 +1,19 @@
+<div class="form-row">
+    <input [class.is-invalid]='ngControl.touched && ngControl.invalid'
+        type="{{type !== 'password'? type : showPassword? 'text' : 'password'}}" [formControl]="ngControl.control"
+        placeholder="{{label}}">
+    <i *ngIf="type === 'password'" class="fa fa-eye" (mousedown)="showPassword = true"
+        (mouseup)="showPassword=false"></i>
+    <div *ngIf="ngControl.touched && ngControl.control.errors?.required" class="invalid-feedback text-red">
+        Please enter a {{label}}
+    </div>
+    <div *ngIf="ngControl.control.errors?.minlength" class="invalid-feedback text-red">
+        {{label}} must be at least {{ngControl.control.errors.minlength['requiredLength']}}
+    </div>
+    <div *ngIf="ngControl.control.errors?.maxlength" class="invalid-feedback text-red">
+        {{label}} must be at least {{ngControl.control.errors.maxlength['requiredLength']}}
+    </div>
+    <div *ngIf="ngControl.control.errors?.isMatching" class="invalid-feedback text-red">
+        Passwords do not match
+    </div>
+</div>

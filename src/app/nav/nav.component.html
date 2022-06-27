@@ -1,0 +1,29 @@
+<header class="site-header">
+  <div class="wrapper site-header__wrapper">
+    <a routerLink="/" class="brand">CATs</a>
+    <nav class="nav">
+      <label for="checkbox" class="hamburger nav__toggle">
+        <input type="checkbox" id="nav-checkbox" [checked]="this.showMenu" (click)="clickEventToogleMenu()">
+        <span class="line line-main"></span>
+        <span class="line line-split"></span>
+      </label>
+
+
+      <ul class="nav__wrapper " [ngClass]="this.showMenu ? 'active': ''" (click)="clickEventToogleMenu()">
+        <li class="nav__item"><a class="nav-link" routerLink="/" routerLinkActive="active">Dashboard</a></li>
+        <li class="nav__item" *ngIf="(accountService.currentUser$ | async) !== null"><a class="nav-link"
+            routerLink="/favorites" routerLinkActive="active">Favorites</a></li>
+
+        <li class="nav__item nav__item--end" *ngIf="(accountService.currentUser$ | async) === null"><a class="nav-link"
+            routerLink="/register" routerLinkActive="active"> Register</a></li>
+        <li class="nav__item" *ngIf="(accountService.currentUser$ | async) === null"><a class="nav-link"
+            routerLink="/login" routerLinkActive="active"> Login</a></li>
+        <li class="nav__item nav__item--end logout" *ngIf="(accountService.currentUser$ | async) !== null"><a
+            class="nav-link" (click)="logout()" routerLinkActive="active"> Logout</a></li>
+        <li class="nav__item"><a class="nav-link" href="https://github.com/Bicka/fe-d-tema"><i
+              class="fa fa-github"></i></a></li>
+
+      </ul>
+    </nav>
+  </div>
+</header>

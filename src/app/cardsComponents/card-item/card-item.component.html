@@ -1,0 +1,30 @@
+<div class="card">
+    <div *ngIf="item.type ==='search'" class="image-div" style="background-image: url('{{item.url}}')">
+
+    </div>
+    <div *ngIf="item.type ==='fav'" class="image-div" style="background-image: url('{{item.image.url}}')">
+    </div>
+    <div class="btn-group">
+        <button (click)="dowloadImage()">
+            <span class="tooltip" data-tooltip="Download">
+                <i class="fa fa-download text-blue"></i>
+            </span>
+        </button>
+        <button (click)="getDetails()">
+            <span class="tooltip" data-tooltip="Details">
+                <i class="fa fa-info-circle text-teal"></i>
+            </span>
+        </button>
+        <button *ngIf="item.type ==='search'" (click)="favClick()">
+            <span class="tooltip" data-tooltip="Add to favorites">
+                <i class="fa fa-heart text-red"></i>
+            </span>
+        </button>
+        <button *ngIf="item.type ==='fav'" (click)="removeFavClick()">
+            <span class="tooltip" data-tooltip="Remove">
+                <i class="fa fa-times text-red"></i>
+            </span>
+        </button>
+
+    </div>
+</div>

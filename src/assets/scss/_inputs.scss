@@ -1,0 +1,44 @@
+input {
+  padding-left: 12px;
+  padding-right: 12px;
+  border-radius: 5px;
+  border: $gray-input solid 1px;
+  &:hover {
+    border-color: $black;
+  }
+  &:focus {
+    border-color: $primary-color-focus;
+  }
+  &:active {
+    border-color: $primary-color-active;
+  }
+  &:disabled {
+    font-style: italic;
+    background-color: $white;
+  }
+  &.is-invalid {
+    border-color: $red;
+  }
+  &[type="checkbox"],
+  &[type="radio"] {
+    height: 18px !important;
+    width: 18px !important;
+    margin: 0 5px !important;
+  }
+  &[type="checkbox"]:checked,
+  &[type="radio"]:checked {
+    &:hover {
+      background-color: $primary-color-hover;
+    }
+    &:focus {
+      background-color: $primary-color-focus;
+    }
+    &:active {
+      background-color: $primary-color-active;
+    }
+    &:disabled {
+      font-style: italic;
+      background-color: $white;
+    }
+  }
+}

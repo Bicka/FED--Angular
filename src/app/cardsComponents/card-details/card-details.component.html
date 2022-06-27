@@ -1,0 +1,38 @@
+<div class="details-div">
+    <div class="image-div" style="background-image: url('{{item.url}}')">
+
+    </div>
+    <div class="item-details-div">
+        <div class="download-div">
+            <a class="btn btn-blue" href="{{item.url}}" target="_blank" download="{{item.id}}">Dowload</a>
+        </div>
+        <div class="grid-row">
+            <span>ID: </span>
+            <span class="title">{{item.id}}</span>
+        </div>
+        <div class="grid-row" *ngIf="item.width && item.height">
+            <span>Size: </span>
+            <span class="title">{{item.width}} x {{item.height}}</span>
+        </div>
+        <div class="grid-row" *ngIf="item.breeds">
+            <span>Breed: </span>
+            <span class="title">{{item.breeds[0].name}}</span>
+        </div>
+        <div class="grid-row" *ngIf="item.breeds">
+            <span>Origin: </span>
+            <div class="img-div">
+                <img src="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.2.1/flags/1x1/{{item.breeds[0]?.country_code.toLowerCase()}}.svg"
+                    alt="{{item.breeds[0].country_code}}">
+                {{item.breeds[0].origin}}
+            </div>
+        </div>
+        <div class="grid-row" *ngIf="item.breeds">
+            <span>Life-span: </span>
+            <p class="title">{{item.breeds[0].life_span}}</p>
+        </div>
+        <div class="grid-row" *ngIf="item.breeds">
+            <span>Description: </span>
+            <p class="title">{{item.breeds[0].description}}</p>
+        </div>
+    </div>
+</div>

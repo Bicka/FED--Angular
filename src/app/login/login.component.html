@@ -1,0 +1,29 @@
+<div class="login-container">
+  <div class="login-div">
+    <div class="login-wrap">
+
+      <h3>Login to your account</h3>
+
+      <form #loginForm="ngForm" class="form-div" (ngSubmit)="login()" autocomplete="off">
+        <div class="form-row">
+          <label for="username">Your email</label>
+          <input name="username" [(ngModel)]="model.username" class="form-control mr-sm-2" type="email">
+        </div>
+        <div class="form-row">
+
+          <label for="username">Your password</label>
+          <input name="password" [(ngModel)]="model.password" class="form-control mr-sm-2"
+            type="{{showPassword? 'text' : 'password'}}">
+          <i class="fa fa-eye" (mousedown)="showPassword = true" (mouseup)="showPassword=false"></i>
+        </div>
+        <div class="form-footer">
+          <span class="form-register">
+            No account? <a class="text-blue" routerLink="/register">Create one</a>
+          </span>
+          <button class="btn btn-blue my-2 my-sm-0" type="submit">LOGIN</button>
+        </div>
+
+      </form>
+    </div>
+  </div>
+</div>
