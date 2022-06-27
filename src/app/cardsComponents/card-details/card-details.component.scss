@@ -44,6 +44,12 @@
       grid-template-columns: 50% 50%;
       margin-top: 10px;
       text-align: start;
+   
+      :first-child{
+        text-align: end;
+        margin-right: 10px;
+      }
+      
       .img-div {
         display: flex;
         flex-direction: row;
@@ -61,6 +67,10 @@
         margin: 0;
       }
     }
+  }
+  @media screen and (min-width: 1300px) {
+    width: 65%;
+    flex-direction: row;
   }
   @media screen and (max-width: 730px) {
     width: 330px;

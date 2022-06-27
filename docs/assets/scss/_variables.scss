@@ -1,0 +1,51 @@
+/* You can add global styles to this file, and also import other style files */
+$blue: #027ee6;
+$orange: #ff883f;
+$green: #268e6c;
+$indigo: #5856d6;
+$purple: #af52de;
+$pink: #ff2d55;
+$red: #ff3a30;
+$yellow: #ffcc00;
+$teal: #5ac7fa;
+
+$white: #fff;
+$black: #000;
+
+$primary-color: $blue;
+$primary-color-hover: lighten(
+  $color: $blue,
+  $amount: 15,
+);
+$primary-color-focus: lighten(
+  $color: $blue,
+  $amount: 15,
+);
+$primary-color-active: #6abcf8;
+$primary-color-disabled: #cecece;
+
+$scrollbar-color: #d5d5d5;
+$gray-input: #eaeaea;
+
+$colorsNameBlackText: "white", "yellow", "teal";
+$colorsNameWhiteText: "blue", "indigo", "red", "green", "black", "orange",
+  "pink";
+$colorsValBlackText: $white, $yellow, $teal;
+$colorsValWhiteText: $blue, $indigo, $red, $green, $black, $orange, $pink;
+
+li {
+  text-decoration: none;
+}
+
+a {
+  color: $blue;
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+input {
+  width: fit-content;
+}

@@ -1,0 +1,71 @@
+.card-pagination {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+
+  .ng-star-inserted {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    padding: 0 6px;
+    color: $white;
+    a:hover {
+      background: transparent;
+    }
+  }
+
+  .small-screen {
+    background: $primary-color-hover !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 6px 6px;
+  }
+  li.ng-star-inserted {
+    &.current {
+      background: $blue !important;
+      position: relative;
+    }
+    background: $primary-color-hover !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    padding: 0 6px;
+    color: $white;
+
+    height: 2rem;
+
+    &:hover {
+      background: $blue;
+    }
+    &.disabled {
+      background: $primary-color-disabled !important;
+    }
+  }
+
+  .pagination-previous,
+  .pagination-next {
+    font-size: 1.2em;
+    &.disabled {
+      background: $primary-color-disabled !important;
+      &::before {
+        margin: 0 !important;
+      }
+    }
+    a::after {
+      margin: 0 !important;
+    }
+  }
+  .pagination-previous {
+    border-top-left-radius: 50%;
+    border-bottom-left-radius: 50%;
+  }
+  .pagination-next {
+    border-top-right-radius: 50%;
+    border-bottom-right-radius: 50%;
+  }
+}
